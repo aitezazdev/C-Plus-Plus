@@ -71,6 +71,16 @@ class Stack{
         }
     }
 
+    // Function for Top
+    int Top() {
+        if (isEmpty()) {
+            cout << "Stack is empty, cannot retrieve top value." << endl;
+            return 0;
+        } else {
+            return arr[top];
+        }
+    }
+
     // Function for Change
     void Change(int pos, int val){
         arr[pos] = val;
@@ -100,7 +110,8 @@ int main(){
         cout<<"6. Count"<<endl;
         cout<<"7. Change"<<endl;
         cout<<"8. Display"<<endl;
-        cout<<"9. Clear Screen"<<endl<<endl;
+        cout<<"9. Clear Screen"<<endl;
+        cout<<"10. Top of the stack value "<<endl<<endl;
 
         cin>>option;
         switch(option){
@@ -149,6 +160,9 @@ int main(){
                 break;
             case 9:
                 system("cls");
+                break;
+            case 10:
+                cout << "Top function called - Top value in the stack is: " << s1.Top() << endl;
                 break;
             default:
                 cout<<"Enter Proper Option number "<<endl;

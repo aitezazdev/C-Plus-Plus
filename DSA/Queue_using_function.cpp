@@ -82,7 +82,7 @@ class Queue{
 
         // Function Display
         void Display(){
-            cout<<"All values in the Queue are : "<<endl;
+            cout<<"\nAll values in the Queue are : "<<endl;
             for (int i = 0; i < 5; i++)
             {
                 cout<<arr[i]<<" ";
@@ -101,62 +101,30 @@ class Queue{
 };
 int main(){
     Queue q1;
-    int option, value;
-    do{
-        cout<<"\n What operation do you want to perform? select Number. Enter 0 to Exit"<<endl;
-        cout<<"1. Enqueue"<<endl;
-        cout<<"2. Dequeue"<<endl;
-        cout<<"3. isEmpty"<<endl;
-        cout<<"4. isFull"<<endl;
-        cout<<"5. Count"<<endl;
-        cout<<"6. Display"<<endl;
-        cout<<"7. Clear Screen"<<endl;
-        cout<<"8. Front Function"<<endl<<endl;
+    q1.Enqueue(10);
+    q1.Enqueue(20);
+    q1.Enqueue(30);
+    q1.Enqueue(40);
+    q1.Enqueue(50);
+    q1.Display();
 
-        cin>>option;
-        switch(option){
-            case 0:
-                break;
-            case 1:
-                cout<<"Enqueue operation \n Enter an item to enqueue in the Queue"<<endl;
-                cin>>value;
-                q1.Enqueue(value);
-                break;
-            case 2:
-                cout<<"Dequeue operation called \n Dequeue value : "<<q1.Dequeue()<<endl;
-                break;
-            case 3:
-                if(q1.isEmpty()){
-                    cout<<"Queue is empty"<<endl;
-                }else{
-                    cout<<"Queue is not empty"<<endl;
-                }
-                break;
-            case 4:
-                if(q1.isFull()){
-                    cout<<"Queue is Full"<<endl;
-                }else{
-                    cout<<"Queue is not Full"<<endl;
-                }
-                break;
-            case 5:
-                cout<<"Count operation \n Count of items in Queue is : "<<q1.Count()<<endl;
-                break;
-            case 6:
-                cout<<"Display function called - "<<endl;
-                q1.Display();
-                break;
-            case 7:
-                system("cls");
-                break;
-            case 8:
-                cout << "Front function called - Front value in the queue is: " << q1.Front() << endl;
-                break;
-            default:
-                cout<<"Enter Proper Option number "<<endl;
-        }
+    q1.Dequeue();
+    q1.Display();
 
-    }while(option != 0);
+    cout<<"Value at Front is : "<<q1.Front();
 
+    cout<<"\nCount is : "<<q1.Count();
+
+    if(q1.isEmpty()){
+        cout<<"\nQueue is empty"<<endl;
+    }else{
+        cout<<"\nQueue is not empty"<<endl;
+    }
+
+    if(q1.isFull()){
+        cout<<"Queue is Full"<<endl;
+    }else{
+        cout<<"Queue is not Full"<<endl;
+    }
     return 0;
 }
