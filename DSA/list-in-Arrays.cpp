@@ -16,6 +16,7 @@ void Print(){
     }
 }
 
+// Adding elements
 void AddItem(int v, int idx){
     if(idx > size){
         cout<<"Invalid"<<endl;
@@ -30,6 +31,7 @@ void AddItem(int v, int idx){
     cout<<"Size after adding is "<<size<<endl;
 }
 
+// Deleting Elements
 void Delete(int idx){
     int i;
     if( idx > size){
@@ -39,17 +41,56 @@ void Delete(int idx){
         for(i = idx; i < size; i++){
             A[i] = A[i+1];
         }
-        // cout<<"Value deleted at index "<<idx<<" is "<<A[i]<<endl;
+        cout<<"Value deleted at index "<<idx<<" is "<<A[idx]<<endl;
         size--;
         cout<<"New size after delete is "<<size<<endl;
     }
 }
 
+// Finding Elements
+int FindElement(int fd){
+    for(int i = 0; i < size; i++){
+        if(A[i] == fd){
+            cout<<"Element "<<fd<<" found at index "<<i<<endl;
+            return i;
+        }
+    }
+        cout<<"Element "<<fd<<" not found in the array"<<endl;
+        return -1;
+}
+
+// Length of An array
+int ArrayLength(){
+    int l;
+    cout<<"Length of array is "<<l<<endl;
+    return l = sizeof(A) / sizeof(A[0]);
+}
+
+// UpdateElement
+void UpdateElement(int newValue, int idx){
+    if(idx > size){
+        cout << "Invalid index for update" << endl;
+        return;
+    }
+    A[idx] = newValue;
+    cout << "Element at index " << idx << " updated to " << newValue << endl;
+}
+
 int main(){
     Print();
-    AddItem(20, 2);
-    Print();
-    Delete(3);
-    Print();
+
+    // AddItem(20, 2);
+    // Print();
+
+    // Delete(3);
+    // Print();
+
+    // FindElement(3);
+
+    // ArrayLength();
+
+    // UpdateElement(100, 2);
+    // Print();
+
     return 0;
 }

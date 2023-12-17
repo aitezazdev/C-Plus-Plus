@@ -1,13 +1,15 @@
 #include<iostream>
 using namespace std;
 
-class Queue{
+class CircularQueue{
     private:
         int front;
         int rear;
         int arr[5];
+        int ItemCount;
     public:
-        Queue(){
+        CircularQueue(){
+            ItemCount = 0;
             front = -1;
             rear = -1;
             for (int i = 0; i < 5; i++)
@@ -27,7 +29,7 @@ class Queue{
 
         // Function Full
         bool isFull(){
-            if(rear == 4){
+            if((rear + 1) % 5 == front){
                 return true;
             }else{
                 return false;
@@ -37,7 +39,7 @@ class Queue{
         // Function Enqueue
         void Enqueue(int val){
             if(isFull()){
-                cout<<"Queue is Full"<<endl;
+                cout<<"Queue is Full, cannot add more"<<endl;
                 return;
             }
             else if(isEmpty()){
@@ -46,9 +48,10 @@ class Queue{
                 arr[rear] = val;
             }
             else{
-                rear++;
+                rear = (rear + 1) % 5;
                 arr[rear] = val;
             }
+            ItemCount++;
         }
 
         // Function Dequeue
@@ -68,7 +71,7 @@ class Queue{
             else{
                 x = arr[front];
                 arr[front] = 0;
-                front++;
+                front = (front + 1) % 5;
                 return x;
             }
         }
@@ -89,7 +92,7 @@ class Queue{
         }
 };
 int main(){
-    Queue q1;
+    CircularQueue q1;
     int option, value;
     do{
         cout<<"\n What operation do you want to perform? select Number. Enter 0 to Exit"<<endl;
@@ -106,8 +109,8 @@ int main(){
             case 0:
                 break;
             case 1:
-                cout<<"Enqueue operation \n Enter an item to enqueue in the Queue"<<endl;
-                cin>>value;
+                cout << "Enqueue operation \n Enter an item to enqueue in the Queue" << endl;
+                cin >> value;
                 q1.Enqueue(value);
                 break;
             case 2:
