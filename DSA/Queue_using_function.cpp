@@ -83,7 +83,11 @@ class Queue{
         // Function Display
         void Display(){
             cout<<"\nAll values in the Queue are : "<<endl;
+<<<<<<< HEAD
             for (int i = 4; i >= 0 ; i--)
+=======
+            for (int i = 4; i >= 0; i--)
+>>>>>>> 3e1e680308f4b8a86612608a05df7d80e4000048
             {
                 cout<<arr[i]<<" ";
             }    
