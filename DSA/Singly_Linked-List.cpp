@@ -79,6 +79,20 @@ void DeleteValue(int num) {
     delete current;
 }
 
+// Find a value in the Linked List
+bool FindValue(int val) {
+    Node* p = head;
+    while (p != NULL) {
+        if (p->data == val) {
+            // Value found in the linked list
+            return true;
+        }
+        p = p->next;
+    }
+    // Value not found in the linked list
+    return false;
+}
+
 // Print Function
 void Print() {
     Node* p = head;  // pointer starting from head
@@ -104,6 +118,12 @@ int main() {
     Print();
     cout<<endl;
 
+    int valueToFind = 10;
+    if (FindValue(valueToFind)) {
+        cout << "Value " << valueToFind << " found in the linked list." << endl;
+    } else {
+        cout << "Value " << valueToFind << " not found in the linked list." << endl;
+    }
     DeleteValue(15);
     Print();
     return 0;
